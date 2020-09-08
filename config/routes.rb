@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+  registrations: 'users/registrations'
+    }
+
   resources :stories
   root 'pages#index'
+
+  get '@:username/:story_id', to: 'pages#show', as: 'story_page'
+  get '@:username', to: 'pages#user', as: 'user_page'
+
 end

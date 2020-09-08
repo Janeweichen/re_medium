@@ -4,9 +4,33 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label :username, '使用者帳號' %><br />
+    <div class="control">
+      <%= f.text_field :username, class: 'input' %>
+    </div>
+    <p class="help">範例：＠babosa</p>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :avatar, '個人照' %><br />
+    <div class="control">
+      <%= f.file_field :avatar%>
+    </div>
+    <%= avatar(current_user) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :intro, '個人簡介' %><br />
+    <div class="control">
+      <%= f.text_area :intro, class: 'textarea', rows: 10 %>
+    </div>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <div class="control">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'input' %>
+      <%= f.email_field :email, autocomplete: "email", class: 'input' %>
     </div>
   </div>
 
@@ -28,13 +52,9 @@
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'input' %>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
 
   <div class="actions">
     <%= f.submit "更新" ,class: 'button is-primary' %>
@@ -42,8 +62,4 @@
 <% end %>
 
 <br>
-<h3>想要砍掉重練嗎？</h3>
-
-<p><%= button_to "刪除我的帳戶", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'button is-danger' %></p>
-
 <%= link_to "回到上一頁", :back, class:'button' %>
