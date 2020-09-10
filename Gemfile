@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.0'
 
+gem 'paranoia', '~> 2.4', '>= 2.4.2'
 gem 'foreman', '~> 0.87.2'
 gem 'babosa', '~> 1.0', '>= 1.0.3'
 gem 'friendly_id', '~> 5.4'

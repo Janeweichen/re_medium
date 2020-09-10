@@ -9,7 +9,7 @@
     </span>
 
     <article class="content">
-      <%= image_tag @story.cover_image.variant(resize: '1000x500')%>
+      <%= image_tag @story.cover_image.variant(resize: '1000x500') if @story.cover_image.attached?%>
       <%= simple_format(@story.content)%>
       <footer>
         拍手 0
