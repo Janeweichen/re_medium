@@ -1,8 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem "braintree", "~> 2.103.0"
 ruby '2.7.0'
-
+gem 'figaro', '~> 1.2'
+gem 'awesome_print', '~> 1.8'
 gem 'paranoia', '~> 2.4', '>= 2.4.2'
 gem 'foreman', '~> 0.87.2'
 gem 'babosa', '~> 1.0', '>= 1.0.3'

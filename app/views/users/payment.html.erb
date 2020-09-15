@@ -1,0 +1,39 @@
+<div class="box">
+  <article class="media">
+    <div class="media-left">
+      <figure class="image is-64x64">
+        <img src="https://fakeimg.pl/128x128/?text=CCH" alt="Image">
+      </figure>
+    </div>
+    <div class="media-content">
+      <div class="content">
+        <strong><%= @payment_type%>USD(<%= @fee%>)</span>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
+        </p>
+      </div>
+    </div>
+  </article>
+</div>
+
+<div id="dropin-container"></div>
+<button id="submit-button">Request payment method</button>
+
+<script src="https://js.braintreegateway.com/web/dropin/1.24.0/js/dropin.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(event) {
+      var button = document.querySelector('#submit-button');
+
+      braintree.dropin.create({
+        authorization: '<%= @token %>',
+        container: '#dropin-container'
+      }, function (createErr, instance) {
+        button.addEventListener('click', function () {
+          instance.requestPaymentMethod(function (err, payload) {
+            // Submit payload.nonce to your server
+          });
+        });
+      });      
+      })
+
+  </script>

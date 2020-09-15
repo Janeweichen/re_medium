@@ -18,7 +18,6 @@ export default class extends Controller {
         
             default:
                 target.innerHTML = status
-                break;
         }  
       })
       .catch(function(error){
