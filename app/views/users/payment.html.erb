@@ -31,8 +31,8 @@
   <script>
     document.addEventListener('turbolinks:load', function(event) {
       var button = document.querySelector('#submit-button');
-      let nonce_field = document.querySelector('input[name="payment_nonce"]')
-      let form = document.querySelector('#pay_form')
+      let nonce_field = document.querySelector('input[name="payment_nonce"]');
+      let form = document.querySelector('#pay_form');
 
       braintree.dropin.create({
         authorization: '<%= @token %>',
@@ -42,7 +42,7 @@
           event.preventDefault()
 
           instance.requestPaymentMethod(function (err, payload) {
-            nonce_field.value = payload.nonce
+          nonce_field.value = payload.nonce
             form.submit()
 
           });

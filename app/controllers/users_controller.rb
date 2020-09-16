@@ -14,7 +14,7 @@ class UsersController < ApplicationController
         nonce = params[:payment_nonce]
 
         result = gateway.transaction.sale(
-            amount: "10.00",
+            amount: fee,
             payment_method_nonce: nonce,
             options: {
             submit_for_settlement: true
